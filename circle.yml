@@ -1,0 +1,20 @@
+## Customize the test machine
+machine:
+  # Version of java to use
+  java:
+    version: oraclejdk8
+
+## Customize test commands
+test:
+  pre:
+    - git clone https://github.com/cs3134/grader.git
+    - cp grader/src/* ./
+    - cp grader/lib/* ./
+    - cp grader/grade.sh ./grade.sh
+    - cp grader/config.prop ./config.prop
+  override:
+    - sh grade.sh
+
+notify:
+  webhooks:
+    - url: http://jarvis.xyz/webhook/ci
