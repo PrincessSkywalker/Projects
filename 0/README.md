@@ -1,5 +1,4 @@
-# Homework 0 - 100pts
-
+# Homework 0 
 The purpose of this homework is to help you familiarize yourself with GitHub and Jarvis, and allow you to see what Jarvis does through a tiny programming assignment.
 
 ## GitHub and Jarvis Setup
