@@ -1,4 +1,4 @@
-# Homework 0
+# Homework 0 - 100pts
 
 The purpose of this homework is to help you familiarize yourself with GitHub and Jarvis, and allow you to see what Jarvis does through a tiny programming assignment.
 
@@ -37,3 +37,5 @@ $ git push
 ```
 
 If you set up your GitHub and Jarvis correctly, this should go through with no errors and you should have an email from Jarvis showing your grades (hopefully 100!) in a few minutes.
+
+Feel free to change the commit message to anything else, but you'd thank yourself for putting in something other than `omgomgomg it finally works?!` or `plsplspls let it work` because Git allows you to revert to previous commits really easily (and you'd want to identify which one you want to revert to without combing through every single one).
