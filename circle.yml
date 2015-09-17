@@ -14,7 +14,3 @@ test:
     - cp grader/config.prop ./config.prop
   override:
     - sh grade.sh
-
-notify:
-  webhooks:
-    - url: http://jarvis.xyz/webhook/ci
