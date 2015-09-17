@@ -1,9 +1,12 @@
 # Homework 1
 COMS W3134 - Data Structures in Java
 * 100pts toal
-* Due: Wed 9/23 11:59pm
+* Due: Sun 9/27 11:59pm
 
 This first homework contains only programming problems. Future problem sets will also contain a theory portion.
+
+Please be aware of the [late homework and academic honesty policy on the course website](http://www.cs.columbia.edu/~bauer/cs3134/homework.html).
+
 
 To get this homework problem into your own repository, you should, in your `homework-<youruni>` directory, run
 
