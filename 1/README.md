@@ -43,7 +43,7 @@ Can you come up with a faster algorithm if you assume that the list is sorted in
 
 #### d) (20 pts)
 Write a method
-`public void interleave(MyLinkedList<AnyType> other)` that interleaves elements from  the `other` list  into  the  linked  list.
+`public void interleave(SimpleLinkedList<AnyType> other)` that interleaves elements from  the `other` list  into  the  linked  list.
 If `other` is  longer  than  the  current  listm  its  remaining elements  should  simply  be  appended.
 
 For  example,  if `l1` is `[ 1 2 3 ]`
