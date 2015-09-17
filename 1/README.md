@@ -5,6 +5,12 @@ COMS W3134 - Data Structures in Java
 
 This first homework contains only programming problems. Future problem sets will also contain a theory portion.
 
+To get this homework problem into your own repository, you should, in your `homework-<youruni>` directory, run
+
+```
+$ git pull upstream master
+```
+
 ### Problem 1 - Linked Lists (70pts)
 
 For this problem, you will implement functionality for different types of *List* data structures. Take a look at the file `1/src/SimpleLinkedList.java` that defines a simple LinkedList.
