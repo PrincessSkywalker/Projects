@@ -18,6 +18,8 @@ $ git pull upstream master
 
 For this problem, you will implement functionality for different types of *List* data structures. Take a look at the file `1/src/SimpleLinkedList.java` that defines a simple LinkedList.
 
+You may not use any data structures from the Java API to solve these problems. 
+
 #### a) (14pts)
 
 Write a method int `public int indexOf(Object o)`, which returns the index of the first occurence of the element `o`, or -1 if the element is not found.  Make sure to use
@@ -46,12 +48,12 @@ Can you come up with a faster algorithm if you assume that the list is sorted in
 
 #### d) (20 pts)
 Write a method
-`public void interleave(SimpleLinkedList<AnyType> other)` that interleaves elements from  the `other` list  into  the  linked  list.
+`public void interleave(SimpleLinkedList<T> other)` that interleaves elements from  the `other` list  into  the  linked  list.
 If `other` is  longer  than  the  current  list,  its  remaining elements  should  simply  be  appended.
 
 For  example,  if `l1` is `[ 1 2 3 ]`
 and
-`l2` is `[ 10 9 8 7 6 ]`, `l1.interlave(t2)` would change `l1` to `[ 1 10 2 9 3 8 7 6 ]` and `l2.interlave(l1)` would change `l2` to `[ 10 1 9 2 8 3 7 6 ]` .
+`l2` is `[ 10 9 8 7 6 ]`, `l1.interleave(t2)` would change `l1` to `[ 1 10 2 9 3 8 7 6 ]` and `l2.interleave(l1)` would change `l2` to `[ 10 1 9 2 8 3 7 6 ]` .
 
 ### Problem 2 - Range (30 pts)
 
