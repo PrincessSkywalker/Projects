@@ -79,10 +79,10 @@ for(Integer j : new Range(1,8)) {
 // 1234567
 ```
 
-The args are `range(low, high, incr)`
+The args to the constructor are `new Range(int start, int stop, int incr)`
 
-- `low` - first index produced
-- `high` - iteration stops before reaching high(low/high are inclusive/exclusive)
+- `start` - first index produced
+- `stop` - iteration stops before reaching high(low/high are inclusive/exclusive)
 - `incr` - (**this argument is optional for users, defaults to 1. Not optional for you -- you need to implement this with the optionality.**). the increment each time around the loop The best way to implement this is to use two constructors (overloading constructors)
 
 
