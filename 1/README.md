@@ -58,7 +58,7 @@ and
 ### Problem 2 - Range (30 pts)
 
 In python, one can use `range` to generate integer sequences to iterate over.
-Write a java iterator class `Range` that has similar functionality.
+Write a java class `Range` that can be used as an Iterable and has similar functionality.
 
 To help you along, `Range.java` containing the basic structure of the program has been given to you.
 
