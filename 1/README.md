@@ -79,12 +79,17 @@ for(Integer j : new Range(1,8)) {
   System.out.print(j);
 }
 // 1234567
+
+for(Integer j : new Range(8,0,-1)) {
+  System.out.print(j);
+}
+// prints 87654321
 ```
 
 The args to the constructor are `new Range(int start, int stop, int incr)`
 
 - `start` - first index produced
-- `stop` - iteration stops before reaching high(low/high are inclusive/exclusive)
-- `incr` - (**this argument is optional for users, defaults to 1. Not optional for you -- you need to implement this with the optionality.**). the increment each time around the loop The best way to implement this is to use two constructors (overloading constructors)
+- `stop` - iteration stops before reaching stop(start/stop are inclusive/exclusive) 
+- `incr` - (**this argument is optional for users, defaults to 1. Not optional for you -- you need to implement this with the optionality.**). the increment each time around the loop The best way to implement this is to use two constructors (overloading constructors). Note that `incr` can be negative as well (last example). 
 
 
