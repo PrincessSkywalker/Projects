@@ -6,6 +6,6 @@ public class Jarvis3134 {
 	 * @return
 	 */
 	public static int sayHi() {
-		return 1007;
+		return 3134;
 	}
 }
