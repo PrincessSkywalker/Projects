@@ -217,6 +217,64 @@ public class SimpleLinkedList<T> implements Iterable<T> {
 
 	/********* ADD YOUR SOLUTIONS HERE *****************/
 
+	//returns the index of the first occurence of the element o, or -1 if the element is not found.
+	public int indexOf(Object o){
+		Node<T> n = beginMarker;
+		for(int i=0; i<size; i++){
+ 			n = n.next();
+ 			if(n.value.equals(o))
+ 				return i;	
+		}
+		return -1;
+	}
+
+	// Instead of using previous and next pointers, 
+	// just have p0 and p1 and an instance variable v which indicates which is the "next" pointer.  
+	// to reverse, flip v.
+	public void reverse(){
+		Node<T> current = beginMarker;
+		while(current != null){
+			Node<T> temp = current.next;
+			current.next = current.prev;
+			current.prev = temp;
+			current = temp;
+		}
+		Node<T> temp = beginMarker;
+		beginMarker = endMarker;
+		endMarker = temp;
+	}
+
+	// O(N^2) equals() comparisons
+	// If the list is sorted, it take O(N) because for each element, 
+	// you only need to check if it is equal to the next
+	public void removeDuplicates(){
+		Node<T> n = beginMarker;
+		while(n != null){
+			Node<T> i = n.next;
+			while(i != null){
+				if(i.value.equals(n.value)){
+					remove(i);
+				}
+				i = i.next;
+			}
+			n = n.next;
+		}
+	}
+
+	public void interleave(SimpleLinkedList<T> other){
+		Node<T> n1 = beginMarker.next;
+		Node<T> n2 = other.beginMarker.next;
+		while(n1 != null && n2 != null){
+			addBefore(n1.next, n2.value);
+			n1 = n1.next;
+			n2 = n2.next;
+		}
+		while(n2 != null){
+			add(n2.value);
+			n2 = n2.next;
+		}
+	}
+	
 	/**
 	 * Obtains an Iterator object used to traverse the collection.
 	 * 
