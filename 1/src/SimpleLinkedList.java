@@ -251,7 +251,7 @@ public class SimpleLinkedList<T> implements Iterable<T> {
 		Node<T> n = beginMarker;
 		while(n != null){
 			Node<T> i = n.next;
-			while(i != null){
+			while(i != null && i != endMarker){
 				if(i.data.equals(n.data)){
 					remove(i);
 				}
@@ -264,12 +264,13 @@ public class SimpleLinkedList<T> implements Iterable<T> {
 	public void interleave(SimpleLinkedList<T> other){
 		Node<T> n1 = beginMarker.next;
 		Node<T> n2 = other.beginMarker.next;
-		while(n1 != null && n2 != null){
-			addBefore(n1.next, n2.data);
-			n1 = n1.next;
+		while(n1 != endMarker && n2 != other.endMarker){
+			Node<T> temp = n1.next;
+			addBefore(temp, n2.data);
+			n1 = temp;
 			n2 = n2.next;
 		}
-		while(n2 != null){
+		while(n2 != other.endMarker){
 			add(n2.data);
 			n2 = n2.next;
 		}
@@ -322,17 +323,29 @@ public class SimpleLinkedList<T> implements Iterable<T> {
 	 * Test the linked list.
 	 */
 	public static void main(String[] args) {
-		SimpleLinkedList<Integer> lst = new SimpleLinkedList<>();
+		// SimpleLinkedList<Integer> lst = new SimpleLinkedList<>();
 
-		for (int i = 0; i < 10; i++)
-			lst.add(i);
-		for (int i = 20; i < 30; i++)
-			lst.add(0, i);
+		// for (int i = 0; i < 10; i++)
+		// 	lst.add(i);
+		// for (int i = 20; i < 30; i++)
+		// 	lst.add(0, i);
 
-		lst.remove(0);
-		lst.remove(lst.size() - 1);
+		// lst.remove(0);
+		// lst.remove(lst.size() - 1);
 
-		System.out.println(lst);
+		// System.out.println(lst);
+
+		SimpleLinkedList<Integer> a = new SimpleLinkedList<>();
+		a.add(1);
+		a.add(2);
+		a.add(2);
+		SimpleLinkedList<Integer> b = new SimpleLinkedList<>();
+		b.add(3);
+		b.add(5);
+		a.interleave(b);
+		b.interleave(a);
+		System.out.println(a);
+		System.out.println(b);
 
 	}
 }

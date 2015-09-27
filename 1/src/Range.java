@@ -1,17 +1,26 @@
 /**
  * Simulates python's range function
  */
-import java.util.ArrayList;
 
 public class Range implements Iterable<Integer> {
 	
-	private ArrayList<Integer> array;
+	private SimpleLinkedList<Integer> array;
 
 	public Range(int min, int max, int increment) {
 
-		array = new ArrayList<Integer>();
-		for(int i = min; i < max; i += increment){
-			array.add(i);
+		array = new SimpleLinkedList<Integer>();
+
+		if(min<max){
+
+			for(int i = min; i < max; i += increment){
+				array.add(i);
+			}
+		}
+		else{
+
+			for(int i = min; i > max; i += increment){
+				array.add(i);
+			}
 		}
 	}
 
