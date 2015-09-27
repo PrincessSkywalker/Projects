@@ -221,8 +221,8 @@ public class SimpleLinkedList<T> implements Iterable<T> {
 	public int indexOf(Object o){
 		Node<T> n = beginMarker;
 		for(int i=0; i<size; i++){
- 			n = n.next();
- 			if(n.value.equals(o))
+ 			n = n.next;
+ 			if(n.data.equals(o))
  				return i;	
 		}
 		return -1;
@@ -252,7 +252,7 @@ public class SimpleLinkedList<T> implements Iterable<T> {
 		while(n != null){
 			Node<T> i = n.next;
 			while(i != null){
-				if(i.value.equals(n.value)){
+				if(i.data.equals(n.data)){
 					remove(i);
 				}
 				i = i.next;
@@ -265,12 +265,12 @@ public class SimpleLinkedList<T> implements Iterable<T> {
 		Node<T> n1 = beginMarker.next;
 		Node<T> n2 = other.beginMarker.next;
 		while(n1 != null && n2 != null){
-			addBefore(n1.next, n2.value);
+			addBefore(n1.next, n2.data);
 			n1 = n1.next;
 			n2 = n2.next;
 		}
 		while(n2 != null){
-			add(n2.value);
+			add(n2.data);
 			n2 = n2.next;
 		}
 	}

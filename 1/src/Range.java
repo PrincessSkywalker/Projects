@@ -1,6 +1,8 @@
 /**
  * Simulates python's range function
  */
+import java.util.ArrayList;
+
 public class Range implements Iterable<Integer> {
 	
 	private ArrayList<Integer> array;
@@ -14,7 +16,7 @@ public class Range implements Iterable<Integer> {
 	}
 
 	public Range(int min, int max) {
-		Range(min, max, 1);
+		this(min, max, 1);
 	}
 
 	public java.util.Iterator<Integer> iterator() {
