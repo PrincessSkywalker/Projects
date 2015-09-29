@@ -81,7 +81,7 @@ You need not worry about dynamically sizing `Buffer.java`. Just build
 it so it will handle a max of 10 million chars.
 
 The editor is intended for relatively slow computers, like an Arduino,
-or Raspberry PI, so your group really wants `insertRight`,
+or Raspberry PI, so your group really wants `insertLeft`,
 `deleteRight`, `deleteLeft`, `moveRight`, and `moveLeft` to be O(1),
 so the editor will feel fast and responsive to the user.
 
