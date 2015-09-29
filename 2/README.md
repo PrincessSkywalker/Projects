@@ -86,7 +86,7 @@ or Raspberry PI, so your group really wants `insertRight`,
 so the editor will feel fast and responsive to the user.
 
 The head of the editor group, who you are trying to impress, is a big
-fan of array based stacks. Implementing the buffer with any other data
+fan of stacks. Implementing the buffer with any other data
 structure would be a bad career move on your part. She is a real
 stickler about only using ADT stack methods like `push()`, `pop()`, and
 `size()`.
