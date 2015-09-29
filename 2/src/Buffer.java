@@ -21,7 +21,7 @@ interface Buffer {
   char[] toArray();
 
   /** get the cursor position, in characters from start */
-  void getCursor();
+  int getCursor();
 
   /** set the cursor position, in characters from start */
   void setCursor(int j);
