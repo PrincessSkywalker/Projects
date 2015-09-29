@@ -29,12 +29,12 @@ interface Buffer {
   /** move cursor one to the right
       "abc|def" => "abcd|ef"
   */
-  void moveRight()
+  void moveRight();
 
   /** move cursor one to the left
       "abc|def" => "ab|cdef"
    */
-  void moveLeft()
+  void moveLeft();
 
   /** insert a new char to the left of the cursor
    if the buffer is "abc|def", insertLeft('X')
