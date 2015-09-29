@@ -88,11 +88,12 @@ so the editor will feel fast and responsive to the user.
 The head of the editor group, who you are trying to impress, is a big
 fan of stacks. Implementing the buffer with any other data
 structure would be a bad career move on your part. She is a real
-stickler about only using ADT stack methods like `push()`, `pop()`, and
-`size()`.
+stickler about only using ADT stack methods like `push()`, `pop()`, `peek()` and
+`size()`. You think that an array based stack like `java.util.Dequeue` might be 
+memory efficient choice.
 
-After you get your `Buffer.java` working correctly, you hear thru the
-grapvine the boss might give you a bonus if all your stacks use a
+After you get your `Buffer.java` working correctly, you hear through the
+grapevine the boss might give you a bonus if all your stacks use a
 single array for char storage.
 
 ### Problem 5: Eeny, meeny, miny, moe (26pts)
