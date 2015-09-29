@@ -58,7 +58,7 @@ To reorganize a train, the train dispatcher can use only the following operation
 * Move the car at the front of the input track to the top of one of the holding tracks.
 * Move the car at the top of one of the holding tracks to the back of the output track.
 
-Cars cannot be moved between the holding tracks.  The goal is always to organize the train cars in increasing order (front to back on the output track, as in the example).
+Cars cannot be moved between the holding tracks. Once a car is on a holding track it cannot move back to the input track (since the input track is a queue). The goal is always to organize the train cars in increasing order (front to back on the output track, as in the example).
 
 Answer the following questions:
 
