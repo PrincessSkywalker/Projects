@@ -114,7 +114,7 @@ In round 0, counting starts at player 0. Player 0, 1, and 2 are skipped, player 
 Also implement the method `findWinner` that returns the last remaining player. What is the running time of this method (provide a tight big-O bound in terms of *k* and *n*)?
 
 **(b) (15pts)**
-There is a simple (but somewhat tricky) recursive algorithm that finds the winner and does not require a Queue (or any data structure to hold a representation of the circle of player). The basic insight for this algorithm is that, if you know who the winner of a game with the same *k* but *n-1* players is, it is easy to figure out who will win the game with *n* players. For *n=1*, player 0, the only player, is always the winner.
+There is a simple (but somewhat tricky) recursive algorithm that finds the winner and does not require a Queue (or any data structure to hold a representation of the circle of players). The basic insight for this algorithm is that, if you know who the winner of a game with the same *k* but *n-1* players is, it is easy to figure out who will win the game with *n* players. For *n=1*, player 0, the only player, is always the winner.
 
 Implement this algorithm in the recursive method `findWinnerRec`.
 Hint: Use the modulo operator `%` to determine the player who is counted out in each round.
