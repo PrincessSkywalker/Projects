@@ -89,7 +89,7 @@ The head of the editor group, who you are trying to impress, is a big
 fan of stacks. Implementing the buffer with any other data
 structure would be a bad career move on your part. She is a real
 stickler about only using ADT stack methods like `push()`, `pop()`, `peek()` and
-`size()`. You think that an array based stack like `java.util.Dequeue` might be 
+`size()`. You think that an array based stack like `java.util.Deque` might be 
 memory efficient choice.
 
 After you get your `Buffer.java` working correctly, you hear through the
