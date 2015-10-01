@@ -64,7 +64,7 @@ public class RangeLazy implements Iterable<Integer> {
 			System.out.print(j + " ");
 		}
 		System.out.println();
-		
+
 		for (Integer j : new RangeLazy(10, 4, -2)) {
 			System.out.print(j + " ");
 		}
