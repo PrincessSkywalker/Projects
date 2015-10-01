@@ -103,9 +103,9 @@ single array for char storage.
 
 In the class `CountOut` implement a simulator for this game. Complete the static method `play` that runs a simulation for a given *n* and a given *k* and uses a single Queue to simulate the circle of players. The method should return a list containing player numbers in the order in which they are counted out.
 
-For instance, for *n=0* and *k=4* the first three rounds of the game look like this:
+For instance, for *n=9* and *k=4* the first three rounds of the game look like this:
 
-![The first three rounds of the game for *n=0* and *k=4*](figures/counting.png)
+![The first three rounds of the game for *n=9* and *k=4*](figures/counting.png)
 
 In round 0, counting starts at player 0. Player 0, 1, and 2 are skipped, player 3 is counted out. In round 1, counting starts at player 4. Player 4, 5, and 6 are skipped and player 7 is counted out, etc.
 
