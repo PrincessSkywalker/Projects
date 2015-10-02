@@ -19,7 +19,8 @@ Arrange the following functions by growth rate (slowest growth to fastest growth
 
 ### Problem 2: Running Time Analysis (16 pts)
 
-Give an analysis of the Big-O running time for each of the following program fragments (provide a tight bound for the running time).
+Give an analysis of the Big-O running time for each of the following program fragments. 
+Clarification: Specifying O(2^N) as an upper bound for the running time would be trivially true for all these examples, but not very informative. We are generally looking for as tight a bound as possible, i.e. big-Theta. 
 
 ```
 int sum = 0;
