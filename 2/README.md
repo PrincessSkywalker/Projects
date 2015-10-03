@@ -87,15 +87,21 @@ or Raspberry PI, so your group really wants `insertLeft`,
 so the editor will feel fast and responsive to the user.
 
 The head of the editor group, who you are trying to impress, is a big
-fan of stacks. Implementing the buffer with any other data
-structure would be a bad career move on your part. She is a real
-stickler about only using ADT stack methods like `push()`, `pop()`, `peek()` and
-`size()`. You think that an array based stack like `java.util.Deque` might be 
-memory efficient choice.
+fan of stacks. Implementing the buffer with any other data structure
+would be a bad career move on your part. She is a real stickler about
+only using ADT stack methods like `push()`, `pop()`, `peek()` and
+`size()`. 
 
-After you get your `Buffer.java` working correctly, you hear through the
-grapevine the boss might give you a bonus if all your stacks use a
-single array for char storage.
+The boss has given you two options to complete the task:
+
+1 - For your stacks, use a memory efficient class that implements
+java.util.Deque. Use addFirst() for push, removeFirst() for
+pop, and peekFirst() for peek.
+
+2 - Implement the stacks yourself, such that all your stacks use a
+single char array for storing the data. (You get 10 bonus pts for 
+this approach.)
+
 
 ### Problem 5: Eeny, meeny, miny, moe (26pts)
 
