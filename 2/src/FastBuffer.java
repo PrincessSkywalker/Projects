@@ -61,6 +61,9 @@ public class FastBuffer implements Buffer{
 	}
 
 	public char deleteRight(){
+		if(cursor_ >= size())
+			return 0;
+
 		ArrayDeque<Character> removed = new ArrayDeque<>(size() - cursor_); 
 		for(int i = size(); i > cursor_; i--){
 			removed.push(buffer_.pop());
@@ -73,6 +76,9 @@ public class FastBuffer implements Buffer{
 	}
 
 	public char deleteLeft(){
+		if(cursor_ <= 0)
+			return 0;
+
 		ArrayDeque<Character> removed = new ArrayDeque<>(size() - cursor_); 
 		for(int i = size(); i > cursor_; i--){
 			removed.push(buffer_.pop());
