@@ -1,4 +1,4 @@
-import java.util.*
+import java.util.*;
 
 public class CountOut {
 
@@ -7,14 +7,16 @@ public class CountOut {
     Queue<Integer> remainingPlayers = new LinkedList<>();
 
     // Your code here.
+    return null;
 
   }
 
   public static Integer findWinner(int n, int k) {
     // Your code here.
+    return 0;
   }
 
   public static Integer findWinnerRec(int n, int k) {
-
+  	return 0;
   }
 }
