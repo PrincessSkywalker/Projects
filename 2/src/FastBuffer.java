@@ -91,6 +91,7 @@ public class FastBuffer implements Buffer{
 		for(int i = 0; i < removed.size(); i ++){
 			buffer_.push(removed.pop());
 		}
+		moveLeft();
 		return c;
 	}
 }
