@@ -19,12 +19,11 @@ public class FastBuffer implements Buffer{
 	public char[] toArray(){
 		char[] array = new char[size()];
 		ArrayDeque<Character> removed = new ArrayDeque<>(size());
-		int s = size();
 
-		for(int i = 0; i < s; i ++){
+		for(int i = size(); i > 0; i --){
 			removed.push(buffer_.pop());
 		}
-		s = removed.size();
+		int s = removed.size();
 		for(int i = 0; i < s; i ++){
 			array[i] = removed.peek();
 			buffer_.push(removed.pop());
@@ -58,7 +57,7 @@ public class FastBuffer implements Buffer{
 			removed.push(buffer_.pop());
 		}
 		buffer_.push(c);
-		for(int i = 0; i < removed.size(); i ++){
+		for(int i = removed.size(); i > 0; i--){
 			buffer_.push(removed.pop());
 		}
 		moveRight();
@@ -73,7 +72,7 @@ public class FastBuffer implements Buffer{
 			removed.push(buffer_.pop());
 		}
 		char c = removed.pop();
-		for(int i = 0; i < removed.size(); i ++){
+		for(int i = removed.size(); i > 0; i --){
 			buffer_.push(removed.pop());
 		}
 		return c;
@@ -88,7 +87,7 @@ public class FastBuffer implements Buffer{
 			removed.push(buffer_.pop());
 		}
 		char c = buffer_.pop();
-		for(int i = 0; i < removed.size(); i ++){
+		for(int i = removed.size(); i > 0; i --){
 			buffer_.push(removed.pop());
 		}
 		moveLeft();
