@@ -1,5 +1,6 @@
 // This class should countain your implementation of the Buffer interface.
 import java.util.ArrayDeque;
+
 public class FastBuffer implements Buffer{
 	private ArrayDeque<Character> buffer_ = new ArrayDeque<>(10000000);
 	private int cursor_;
@@ -18,11 +19,13 @@ public class FastBuffer implements Buffer{
 	public char[] toArray(){
 		char[] array = new char[size()];
 		ArrayDeque<Character> removed = new ArrayDeque<>(size());
+		int s = size();
 
-		for(int i = 0; i < size(); i ++){
+		for(int i = 0; i < s; i ++){
 			removed.push(buffer_.pop());
 		}
-		for(int i = 0; i < removed.size(); i ++){
+		s = removed.size();
+		for(int i = 0; i < s; i ++){
 			array[i] = removed.peek();
 			buffer_.push(removed.pop());
 		}
@@ -58,6 +61,7 @@ public class FastBuffer implements Buffer{
 		for(int i = 0; i < removed.size(); i ++){
 			buffer_.push(removed.pop());
 		}
+		moveRight();
 	}
 
 	public char deleteRight(){
