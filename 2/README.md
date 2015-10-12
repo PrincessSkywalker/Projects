@@ -19,7 +19,8 @@ Arrange the following functions by growth rate (slowest growth to fastest growth
 
 ### Problem 2: Running Time Analysis (16 pts)
 
-Give an analysis of the Big-O running time for each of the following program fragments (provide a tight bound for the running time).
+Give an analysis of the Big-O running time for each of the following program fragments. 
+Clarification: Specifying O(2^N) as an upper bound for the running time would be trivially true for all these examples, but not very informative. We are generally looking for as tight a bound as possible, i.e. big-Theta. 
 
 ```
 int sum = 0;
@@ -86,15 +87,21 @@ or Raspberry PI, so your group really wants `insertLeft`,
 so the editor will feel fast and responsive to the user.
 
 The head of the editor group, who you are trying to impress, is a big
-fan of stacks. Implementing the buffer with any other data
-structure would be a bad career move on your part. She is a real
-stickler about only using ADT stack methods like `push()`, `pop()`, `peek()` and
-`size()`. You think that an array based stack like `java.util.Dequeue` might be 
-memory efficient choice.
+fan of stacks. Implementing the buffer with any other data structure
+would be a bad career move on your part. She is a real stickler about
+only using ADT stack methods like `push()`, `pop()`, `peek()` and
+`size()`. 
 
-After you get your `Buffer.java` working correctly, you hear through the
-grapevine the boss might give you a bonus if all your stacks use a
-single array for char storage.
+The boss has given you two options to complete the task:
+
+1 - For your stacks, use a memory efficient class that implements
+java.util.Deque. Use addFirst() for push, removeFirst() for
+pop, and peekFirst() for peek.
+
+2 - Implement the stacks yourself, such that all your stacks use a
+single char array for storing the data. (You get 10 bonus pts for 
+this approach.)
+
 
 ### Problem 5: Eeny, meeny, miny, moe (26pts)
 
@@ -103,9 +110,9 @@ single array for char storage.
 
 In the class `CountOut` implement a simulator for this game. Complete the static method `play` that runs a simulation for a given *n* and a given *k* and uses a single Queue to simulate the circle of players. The method should return a list containing player numbers in the order in which they are counted out.
 
-For instance, for *n=0* and *k=4* the first three rounds of the game look like this:
+For instance, for *n=9* and *k=4* the first three rounds of the game look like this:
 
-![The first three rounds of the game for *n=0* and *k=4*](figures/counting.png)
+![The first three rounds of the game for *n=9* and *k=4*](figures/counting.png)
 
 In round 0, counting starts at player 0. Player 0, 1, and 2 are skipped, player 3 is counted out. In round 1, counting starts at player 4. Player 4, 5, and 6 are skipped and player 7 is counted out, etc.
 
@@ -114,7 +121,7 @@ In round 0, counting starts at player 0. Player 0, 1, and 2 are skipped, player 
 Also implement the method `findWinner` that returns the last remaining player. What is the running time of this method (provide a tight big-O bound in terms of *k* and *n*)?
 
 **(b) (15pts)**
-There is a simple (but somewhat tricky) recursive algorithm that finds the winner and does not require a Queue (or any data structure to hold a representation of the circle of player). The basic insight for this algorithm is that, if you know who the winner of a game with the same *k* but *n-1* players is, it is easy to figure out who will win the game with *n* players. For *n=1*, player 0, the only player, is always the winner.
+There is a simple (but somewhat tricky) recursive algorithm that finds the winner and does not require a Queue (or any data structure to hold a representation of the circle of players). The basic insight for this algorithm is that, if you know who the winner of a game with the same *k* but *n-1* players is, it is easy to figure out who will win the game with *n* players. For *n=1*, player 0, the only player, is always the winner.
 
 Implement this algorithm in the recursive method `findWinnerRec`.
 Hint: Use the modulo operator `%` to determine the player who is counted out in each round.
