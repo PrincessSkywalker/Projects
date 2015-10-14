@@ -35,14 +35,14 @@ public class Trie {
     buildString(root, sb, NULL);
     return sb.toString().trim();
   }
-
+  
   private void buildString(TrieNode node, StringBuilder sb, int layer) {
-    for (int i = 0; i < layer; i++) {
+    for (int i = 0; i < layer; i++) {  // print some indentation
       sb.append(" ");
     }
-    sb.append(node);
+    sb.append(node);    // print the node itself
     sb.append("\n");
-    for (TrieNode child : node.children) {
+    for (TrieNode child : node.children) {  // recursively print each subtree
       if (child != null) {
         buildString(child, sb, layer + 1);
       }
@@ -57,7 +57,7 @@ public class Trie {
     public TrieNode(char letter, boolean endOfWord) {
       this.letter = letter;
       this.endOfWord = endOfWord;
-      children = new TrieNode[26]; // number of alphabets in english
+      children = new TrieNode[26]; // number of letters in English alphabet
     }
 
     public String toString() {
