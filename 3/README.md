@@ -40,7 +40,7 @@ A **trie** (aka a prefix tree)  is a compact representation of a set of words in
 
 The following prefix tree represents the words `[do, dog, doll, dock, doctor ]`. Note that some nodes (displayed in bold) are specially marked as end-of-word nodes. You can read off a word by starting at the root and following a path down until you reach a bold node.
 
-![./trie.pdf](./trie.png)
+![./trie.png](./trie.png)
 
 You're given the class `Trie.java` with a inner class `TrieNode.java` that represents the skeleton code of a trie and its node. In the code, the root node has the letter `'0'` (shown in the line `public static final char NULL = '0';`). Note that in a trie, a node can have up to 26 (one for each letter a-z of the alphabet). The children are therefore stored in an array.  
 Also note that each node contains an end-of-word flag.
