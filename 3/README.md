@@ -29,7 +29,7 @@ In this problem, you will add functionality to a Binary Search Tree implementati
 Write a method `public boolean isBst()` that returns true if the tree is a Binary Search Tree. You may want to use the public method / private method pattern, where a non-recursive public method calls a private recursive method. An example can be found here [Recitation Week 5 Friday Tree Sample Code](https://github.com/cs3134/recitations/blob/master/week5-fri/basic-tree/src/Tree.java)
 
 ### b) (11 pts)
-Write a method `public List<T> getInterval(T min, T max)` that returns all elements elements *x* from the Binary Search Tree, such that *min <= x <= max*. Your method should run in *O(k + log N)* where *k* is the number of elements in the resulting list.
+Write a method `public List<T> getInterval(T min, T max)` that returns all elements *x* from the Binary Search Tree, such that *min <= x <= max*. Your method should run in *O(k + log N)* where *k* is the number of elements in the resulting list.
 
 ### c) (11 pts)
 Make the BinarySearchTree iterable by implementing the `java.util.Iterable` interface. Write an appropriate Iterator class. The iterator should return the values in the tree in post order. 
