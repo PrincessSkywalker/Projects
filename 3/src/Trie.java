@@ -8,23 +8,25 @@ public class Trie {
   public Trie() {
     root = new TrieNode(NULL, false);
   }
-  
+
+  // implement your methods here
+  // feel free (and you probably should) add helper private methods
+  // problem 4a
   public void addWord(String word) {
-    // implement this
   }
-  
+
+  // problem 4b
   public boolean contains(String word) {
-    // implement this
     return false;
   }
 
+  // problem 4c
   public List<String> getStrings() {
-    // implement this
     return null;
   }
 
+  // problem 4d
   public List<String> getStartsWith(String prefix) {
-    // implement this
     return null;
   }
 

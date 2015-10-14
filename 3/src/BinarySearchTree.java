@@ -1,7 +1,7 @@
 import java.util.List;
 import java.util.Iterator;
 
-public class BinarySearchTree<T extends Comparable<? super T>> implements Iterable<T>{
+public class BinarySearchTree<T extends Comparable<? super T>> implements Iterable<T> {
 
   protected BinaryNode<T> root;
 
@@ -24,7 +24,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> implements Iterab
   // problem 3c
   @Override
   public Iterator<T> iterator() {
-     return null;
+    return null;
   }
 
   public void insert(T x) {
