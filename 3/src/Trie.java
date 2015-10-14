@@ -30,11 +30,11 @@ public class Trie {
 
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    buildString(root, sb, 0);
+    buildString(root, sb, NULL);
     return sb.toString().trim();
   }
 
-  public void buildString(TrieNode node, StringBuilder sb, int layer) {
+  private void buildString(TrieNode node, StringBuilder sb, int layer) {
     for (int i = 0; i < layer; i++) {
       sb.append(" ");
     }
