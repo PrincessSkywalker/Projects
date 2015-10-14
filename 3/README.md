@@ -23,7 +23,7 @@ Show the result of inserting 3,7,2,8,9,4,5 (in this sequence) into an initially 
 #Part 2 - Programming (77 pts)
 
 ## Problem 3: Binary Search Trees   (33 pts)
-In this problem, you will add functionality to a Binary Search Tree implementation (as discussed in class).
+In this problem, you will add functionality to a Binary Search Tree implementation in `3/src/BinarySearchTree.java`. Note that we changed the implementation discussed in class by integrating the basic Tree data structure into the BinarySearchTree class so that only one class is needed.
 
 ### a) (11 pts)
 Write a method `public boolean isBst()` that returns true if the tree is a Binary Search Tree. You may want to use the public method / private method pattern, where a non-recursive public method calls a private recursive method. An example can be found here [Recitation Week 5 Friday Tree Sample Code](https://github.com/cs3134/recitations/blob/master/week5-fri/basic-tree/src/Tree.java)
