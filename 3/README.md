@@ -43,7 +43,7 @@ The following prefix tree represents the words `[do, dog, doll, dock, doctor ]`.
 ![./trie.pdf](./trie.png)
 
 You're given the class `Trie.java` with a inner class `TrieNode.java` that represents the skeleton code of a trie and its node. In the code, the root node has the letter `'0'` (shown in the line `public static final char NULL = '0';`). Note that in a trie, a node can have up to 26 (one for each letter a-z of the alphabet). The children are therefore stored in an array.  
-Also node that each node contains an end-of-word flag.
+Also note that each node contains an end-of-word flag.
 
 Familiarize yourself with the code and try to understand how the arrays are used to map letters of the alphabet to children.
 You'll  find it useful to know that a `char` in Java is essentially an integer. For example, lower case `a` is basically `141`. Then, `'b' - 'a' = 1`. To check out the integers behind chars, check out [https://www.cs.cmu.edu/~pattis/15-1XX/common/handouts/ascii.html](https://www.cs.cmu.edu/~pattis/15-1XX/common/handouts/ascii.html) or just type `man ascii` in your terminal.
