@@ -17,7 +17,7 @@ public class BinarySearchTree<T extends Comparable<? super T>> implements Iterab
   }
 
   // problem 3b
-  public List<T> getInteval(T min, T max) {
+  public List<T> getInterval(T min, T max) {
     return null;
   }
 
