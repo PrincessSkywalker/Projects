@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 public class BinarySearchTree<T extends Comparable<? super T>> implements Iterable<T> {
 
@@ -13,18 +14,88 @@ public class BinarySearchTree<T extends Comparable<? super T>> implements Iterab
   // feel free (and you probably should) add helper private methods
   // problem 3a
   public boolean isBst() {
-    return true;
+    return isBstHelper(root);
+  }
+
+  private boolean isBstHelper(BinaryNode<T> n){
+    if(n==null){
+      return true;
+    }
+    if(isBstHelper(n.left)&&isBstHelper(n.right)){
+      boolean b = true;
+      if(n.left != null)
+        b = n.left.data.compareTo(n.data)<0;
+      if(n.right != null)
+        b = b && n.right.data.compareTo(n.data)>0;
+      return b;
+    }
+    return false;
   }
 
   // problem 3b
   public List<T> getInterval(T min, T max) {
-    return null;
+    return getIntervalHelper(root, min, max);
+  }
+
+  private List<T> getIntervalHelper(BinaryNode<T> n, T min, T max){
+    if(n == null){
+      return new LinkedList<T>();
+    }
+
+    if(n.data.compareTo(min)<=0){
+      List<T> list = getIntervalHelper(n.right, min, max);
+      if(n.data.compareTo(min)==0)
+        list.add(0, n.data);
+      return list;
+    }
+
+    if(n.data.compareTo(max)>=0){
+      List<T> list = getIntervalHelper(n.left, min, max);
+      if(n.data.compareTo(max)==0)
+        list.add(n.data);
+      return list;
+    }
+
+    List<T> list = getIntervalHelper(n.left, min, max);
+    list.add(n.data);
+    list.addAll(getIntervalHelper(n.right, min, max));
+    return list;
   }
 
   // problem 3c
   @Override
   public Iterator<T> iterator() {
-    return null;
+
+    return new BstIterator();
+
+  }
+
+  private class BstIterator implements Iterator<T> {
+
+    Iterator<T> elements = postorder(root).iterator();
+
+    // returns a list representing the post order of the subtree rooted at n
+    private List<T> postorder(BinaryNode<T> n) {
+
+      if(n==null){
+        return new LinkedList<T>();
+      }
+
+      List<T> list = postorder(n.left);
+      list.addAll(postorder(n.right));
+      list.add(n.data);
+
+      return list;
+
+    }
+
+    public boolean hasNext(){
+      return elements.hasNext();
+    }
+
+    public T next(){
+      return elements.next();
+    }
   }
 
   public void insert(T x) {
@@ -188,6 +259,12 @@ public class BinarySearchTree<T extends Comparable<? super T>> implements Iterab
     System.out.println("x " + st.contains("x"));
     System.out.println("max " + st.findMax());
     System.out.println("min " + st.findMin());
+
+    for(String i : st){
+      System.out.println(i);
+    }
+    System.out.println(st.isBst());
+    System.out.println(st.getInterval("j", "t"));
   }
 
   private class BinaryNode<U> {
