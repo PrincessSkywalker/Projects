@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.LinkedList;
 
 public class Trie {
 
@@ -13,22 +14,77 @@ public class Trie {
   // feel free (and you probably should) add helper private methods
   // problem 4a
   public void addWord(String word) {
+    addWordHelper(root, word);
+  }
+
+  private void addWordHelper(TrieNode n, String word){
+    TrieNode node = n.children[word.charAt(0) - 'a'];;
+    
+    if(node == null){
+      node = new TrieNode(word.charAt(0), false);
+      n.children[word.charAt(0) - 'a'] = node;
+    }
+
+    if(word.length() == 1){
+      node.endOfWord = true;
+    }
+    else{
+      addWordHelper(node, word.substring(1));
+    }
   }
 
   // problem 4b
   public boolean contains(String word) {
-    return false;
+    return containsHelper(root, word);
+  }
+
+  private boolean containsHelper(TrieNode n, String word){
+    TrieNode node = n.children[word.charAt(0) - 'a'];
+
+    if(node == null){
+      return false;
+    }
+
+    if(word.length() == 1){
+      return node.endOfWord;
+    }
+    
+    return containsHelper(node, word.substring(1));
   }
 
   // problem 4c
   public List<String> getStrings() {
-    return null;
+    return getStringsHelper(root, "");
+  }
+
+  private List<String> getStringsHelper(TrieNode n, String prefix){
+    List<String> list = new LinkedList<String>();
+
+    for(TrieNode i : n.children){
+      if(i != null)
+        list.addAll(getStringsHelper(i, prefix + i.letter));
+    }
+    
+    if(n.endOfWord){
+      list.add(prefix);
+    }
+    return list;
   }
 
   // problem 4d
   public List<String> getStartsWith(String prefix) {
-    return null;
+    return getStartsWithHelper(root, prefix, 0);
   }
+
+  private List<String> getStartsWithHelper(TrieNode n, String prefix, int index){
+    if(prefix.length() == index){
+      return getStringsHelper(n, prefix);
+    }
+    TrieNode nextNode = n.children[prefix.charAt(index) - 'a'];
+    if(nextNode != null)
+      return getStartsWithHelper(nextNode, prefix, ++index);
+    return new LinkedList<String>();
+  } 
 
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -70,6 +126,10 @@ public class Trie {
     trie.addWord("hello");
     trie.addWord("help");
     System.out.println(trie);
-    System.out.println(trie.getStartsWith("hell"));
+    // System.out.println(trie.g÷etStartsWith("hell"));
+    System.out.println(trie.contains("help"));
+    System.out.println(trie.contains("hel"));
+    System.out.println(trie.getStrings());
+    System.out.println(trie.getStartsWith("hi"));
   }
 }
