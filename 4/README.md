@@ -2,7 +2,7 @@
 
 COMS W3134 - Data Structures in Java
 * 100pts toal (+ max 10 pts extra credit)
-* Due: November 11, 11:59pm
+* Due: November 11, 23:59pm
 
 Please be aware of the [late homework and academic honesty policy on the course website](http://www.cs.columbia.edu/~bauer/cs3134/homework.html).
 
@@ -48,7 +48,7 @@ Specifically, your map should hold keys (denoted by the generic `K`) and values 
 
 Your `AvlMap` should contain an `AvlTree` as an instance variable. `AvlTree.java` contains the AVL tree implementation from the Weiss textbook, so you won't have to implement rotations from scratch. You should, however, read through this code in its entirety and understand what it is doing.  Feel free to modify `AvlTree.java` as you see fit. 
 
-You will find that every class in Java has a `hashCode()` method (since every class in Java extends the mother of all classes -- `Object` and `Object` has a default `equals()` and `hashCode()` methods). You will find these useful for both this problem and the `SeparateChainingMap.java` problem.
+You are also allowed (and encouraged) to modify `AvlTree.java`.
 
 Feel free to add any variables / private methods to `AvlMap` you need.
 We will test your code on the following methods:
@@ -75,6 +75,8 @@ Your implementation should access the `hashCode()` and `equals()` method provide
 `hashCode()` simple returns an integer (not necessarily positive). It does not guarantee that this integer addresses an entry in your hash map so you need to compute the actual index yourself (using modulo and taking care of negative values).
 
 **Important: Do not modify any of the `public static final` variables in the SeparateChainingMap class**
+
+You will find that every class in Java has a `hashCode()` method (since every class in Java extends the mother of all classes -- `Object` and `Object` has a default `equals()` and `hashCode()` methods). You will find these useful for both this problem.
 
 You will be graded on the following sections:
 
