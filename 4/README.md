@@ -18,7 +18,7 @@ Consider the following array of integers: *a = [3, 9, 7, 8, 2, 5, 1]*
    * b) Sort the array using in-place using Heap Sort. First show the result of turning a into a max heap using the linear time algorithm to build a heap (submit only the final array). Then show the array after each deleteMax step. The last step should be an array sorted in increasing order.
 
 ## Problem 2 (12 pts): 
-We discsused that a complete binary tree of *N* elements uses array positions 1 to *N*. Suppose we try to use an array representation of a binary tree that is not complete. We use the same layout for the array as for a complete tree, but only store entries for nodes that are actually in the binary tree, leaving the other entries set to null. For example: 
+We discussed that a complete binary tree of *N* elements uses array positions 1 to *N*. Suppose we try to use an array representation of a binary tree that is not complete. We use the same layout for the array as for a complete tree, but only store entries for nodes that are actually in the binary tree, leaving the other entries set to null. For example: 
 ```
               A  
             /
