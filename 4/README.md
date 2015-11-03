@@ -76,7 +76,6 @@ Your implementation should access the `hashCode()` and `equals()` method provide
 
 **Important: Do not modify any of the `public static final` variables in the SeparateChainingMap class**
 
-You will find that every class in Java has a `hashCode()` method (since every class in Java extends the mother of all classes -- `Object` and `Object` has a default `equals()` and `hashCode()` methods). You will find these useful for both this problem.
 
 You will be graded on the following sections:
 
