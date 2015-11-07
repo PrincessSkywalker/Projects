@@ -88,7 +88,7 @@ public class Trie {
 
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    buildString(root, sb, NULL);
+    buildString(root, sb, 0);
     return sb.toString().trim();
   }
   

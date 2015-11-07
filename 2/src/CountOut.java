@@ -2,6 +2,7 @@ import java.util.*;
 
 public class CountOut {
 
+<<<<<<< HEAD
 	public static List<Integer> play(int n, int k) {
 		Queue<Integer> remainingPlayers = new LinkedList<>();
 		LinkedList<Integer> output = new LinkedList<>();
