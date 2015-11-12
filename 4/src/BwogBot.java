@@ -1,18 +1,32 @@
 import java.io.IOException;
 import java.util.List;
+import java.util.Scanner;
+import java.io.File;
 
 public class BwogBot {
+  private Map<String, Integer> map = new AvlMap<>();
 
   public BwogBot() {
 
   }
 
+  // I choose to use AvlMap because it ran in about 1 second less
+  // the resizing of the SeparateChainingMap causes outweighs the 
+  // improved get performance.
   public void readFile(String fileName) throws IOException {
-
+    Scanner scan = new Scanner(new File(fileName));
+    while(scan.hasNext()){
+      String word = scan.next();
+      map.put(word, getCount(word)+1);
+    }
   }
 
   public int getCount(String word) {
-    return 0;
+    Integer i = map.get(word);
+    if (i == null) {
+      return 0;
+    }
+    return i;
   }
 
   public List<String> getNMostPopularWords(int n) {
@@ -20,7 +34,7 @@ public class BwogBot {
   }
 
   public Map<String, Integer> getMap() {
-    return null;
+    return map;
   }
 
   public static void main(String[] args) throws IOException {
