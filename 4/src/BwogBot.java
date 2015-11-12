@@ -2,9 +2,13 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 import java.io.File;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.Comparator;
 
 public class BwogBot {
   private Map<String, Integer> map = new AvlMap<>();
+  private List<String> keys = new LinkedList<>();
 
   public BwogBot() {
 
@@ -18,6 +22,9 @@ public class BwogBot {
     while(scan.hasNext()){
       String word = scan.next();
       map.put(word, getCount(word)+1);
+      if(!keys.contains(word)){
+        keys.add(word);
+      }
     }
   }
 
@@ -29,8 +36,20 @@ public class BwogBot {
     return i;
   }
 
+  private class CountCompare implements Comparator<String>{
+    public int compare(String s1, String s2) {
+      return getCount(s2) - getCount(s1);
+    }
+  }
+
+  // The words are in english in general, but to some extent give us
+  // an insight into the Bwog contents (ie. Columbia, students, Barnard).
+  // This is helpful in that it gives us an overview of the most commonly 
+  // used words, but the downside is that this method is not guaranteed
+  // to yield words which are specific to the target text.
   public List<String> getNMostPopularWords(int n) {
-    return null;
+    Collections.sort(keys, new CountCompare());
+    return keys.subList(0, n);
   }
 
   public Map<String, Integer> getMap() {
