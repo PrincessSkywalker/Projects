@@ -39,7 +39,7 @@ stream. In the weather example, we might be interested in the *k* hottest days o
 The class should have two methods
 
    * `public void count(T x)`: consider the next element in the stream. This operation should run in *O(log k)* time.
-   * `public List<T> kbest()`:  return a sorted (largest to smallest) array of the *k*-largest elements. This should run in *O(k)* time. 
+   * `public List<T> kbest()`:  return a sorted (largest to smallest) array of the *O(k log k)*-largest elements. This should run in *O(k)* time. 
   
 Use a PriorityQueue to implement this functionality (e.g. `java.util.PriorityQueue`, which implements a heap). You should not use more than *O(k)* space.
 
@@ -86,7 +86,7 @@ You can use *O(N)* space (in addition to the input array) and your algorithm sho
   
 The Merge Sort implementation discussed in class sorts the array in place. This implementation is typical in languages like C and Java, in which objects, or pointers to objects, can be passed to other methods that can then modify the content of the object (here add/remove/move elements of the array). As an alternative, we might want to implement a version of Merge Sort in which the *return value* of each recursive call is a sorted list. A new list is created when the sorted sublists (return values of each recursive call) are merged. The original list is not modified during sorting. In general, no data outside of the method, not even the state of the parameters, should be changed. This is also referred to as a *side-effect free* function -- an important concept in functional programming.
 
-First, write the method `private static List<Integer> mergeLists(List<Integer> left, List<Integer> right)`, that takes two sorted lists as a parameter and returns a new list containing the values of `left` and `right` in increasing order. The method should run in *O(left.size() + right.size())*, assuming that `left` and `right` are linked lists. Hint: use iterators.
+First, write the method `public static List<Integer> mergeLists(List<Integer> left, List<Integer> right)`, that takes two sorted lists as a parameter and returns a new list containing the values of `left` and `right` in increasing order. The method should run in *O(left.size() + right.size())*, assuming that `left` and `right` are linked lists. Hint: use iterators.
 
 Next, write the method `public static List<Integer> sortList(List<Integer> inputList)` that uses `mergeLists` to sort a list of integers *without modifying it* and returns a new sorted list. You might find it useful to take a look at the [java.util.List subList method](http://docs.oracle.com/javase/7/docs/api/java/util/List.html#subList%28int,%20int%29).
 
