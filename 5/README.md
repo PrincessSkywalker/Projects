@@ -14,7 +14,7 @@ Make sure to check that you submitted all your files to Github. In general, late
 ## Problem 1: Sorting (15 pts)
 Sort the following array of (base-10) integers using
    * (a) Insertion Sort (for each entry that needs to be moved, show the array after it has been moved to its final position).
-   * (b) Quick Sort with median of three pivot (show the pivot in each step and the subarray after partitioning according to the pivot).
+   * (b) Quick Sort with median of three pivot (show the pivot in each step and the subarray after partitioning according to the pivot). You do not have to do an in-place sort, i.e. you don't have to use swaps to partition the array.
    * (c) Radix Sort.
    
 [314, 512, 004, 999, 023, 042, 613, 109, 001, 123, 666]
