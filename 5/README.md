@@ -39,7 +39,7 @@ stream. In the weather example, we might be interested in the *k* hottest days o
 The class should have two methods
 
    * `public void count(T x)`: consider the next element in the stream. This operation should run in *O(log k)* time.
-   * `public List<T> kbest()`:  return a sorted (largest to smallest) array of the *O(k log k)*-largest elements. This should run in *O(k)* time. 
+   * `public List<T> kbest()`:  return a sorted (largest to smallest) array of the *O(k)*-largest elements. This should run in *O(k log k)* time. 
   
 Use a PriorityQueue to implement this functionality (e.g. `java.util.PriorityQueue`, which implements a heap). You should not use more than *O(k)* space.
 
