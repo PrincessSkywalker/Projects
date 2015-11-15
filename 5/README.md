@@ -2,7 +2,7 @@
 
 COMS W3134 - Data Structures in Java
 * 100pts toal (+ max 10 pts extra credit)
-* Due: November 20, 23:59pm
+* Due: November 23, 23:59pm
 
 Please be aware of the [late homework and academic honesty policy on the course website](http://www.cs.columbia.edu/~bauer/cs3134/homework.html).
 
