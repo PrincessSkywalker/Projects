@@ -92,7 +92,7 @@ Next, write the method `public static List<Integer> sortList(List<Integer> input
 
 Finally, estimate (as a tight big-O bound) how much space your method requires, in addition to the input array of size N. 
 
-## Problem 6: Extra Credit (Theory, 10pts)
+## Problem 7: Extra Credit (Theory, 10pts)
 For a fixed sequence of *N* integers, you can use a heap to find the median in *O(N log N)* time. 
 
 Assume that, instead of a fixed sequence of integers, you have a stream (implemented as an iterator, as described in in problem 4). Instead of the *k*-largest integers, you want to to keep track of the median of the integers in the stream seen so far (not the mean!). Describe a way to keep track of the median in the stream, so that you can return the current median at any time in *O(1)*. When we encounter a new number in the stream, updating the median should only take *O(log N)* time, where *N* is the number of integers seen in the stream so far, including the latest one.
