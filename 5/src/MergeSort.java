@@ -1,5 +1,7 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.Iterator;
+import java.util.LinkedList;
 
 public class MergeSort {
 
@@ -72,15 +74,35 @@ public class MergeSort {
          * Problem 5: Iterative Bottom-up Merge Sort
          */
         public static void mergeSortB(Integer[] inputArray) {
-            return;
+            Integer[] tempArray = new Integer[inputArray.length];
+
+            for(int i = 1; i < inputArray.length; i *= 2) { // log n iterations
+                for(int left = 0; left < inputArray.length; left += 2 * i) { // n / 2i iterations
+
+                    int right = Math.min(left + i, inputArray.length);
+                    int rightEnd = Math.min(left + 2 * i, inputArray.length) - 1;
+
+                    merge(inputArray, tempArray, left, right, rightEnd); // O(2i)
+                }
+            }
         }
 
 
         /** 
          * Problem 6: Merge Sort for Lists, Without Side Effects
          */
+
+        // We use O(n log n) space, since each merge size creates lists whose total space is n
+        // There are log n sizes that are merged
         public static List<Integer> sortList(List<Integer> inputList) {
-            return null; 
+            if(inputList.size() <= 1){
+                return new LinkedList<Integer>(inputList);
+            }
+
+            int center = inputList.size() / 2;
+            List<Integer> left = sortList(inputList.subList(0, center));
+            List<Integer> right = sortList(inputList.subList(center, inputList.size()));
+            return mergeLists(left, right);
         }
         
 
@@ -88,16 +110,57 @@ public class MergeSort {
          * New merge method that merges two lists and returns a new list.
          * Use this method to implement sortList.
          */
-        public static List<Integer> mergeLists(List<Integer> left, List<Integer> right) { 
-            return null;
+        public static List<Integer> mergeLists(List<Integer> left, List<Integer> right) {
+            LinkedList<Integer> outputList = new LinkedList<>();
+            Iterator<Integer> itLeft = left.iterator();
+            Iterator<Integer> itRight = right.iterator();
+
+            boolean loop = itLeft.hasNext() && itRight.hasNext();
+            int l = 0, r = 0;
+
+            if(loop) {
+                l = itLeft.next();
+                r = itRight.next();
+            }
+
+            while(loop){
+                if(l <= r){
+                    outputList.add(l);
+                    loop = itLeft.hasNext();
+                    if(loop)
+                        l = itLeft.next();
+                    else
+                        outputList.add(r);
+                }
+                else {
+                    outputList.add(r);
+                    loop = itRight.hasNext();
+                    if(loop)
+                        r = itRight.next();
+                    else
+                        outputList.add(l);
+                }
+            }
+
+            while(itLeft.hasNext()){
+                outputList.add(itLeft.next());
+            }
+
+            while(itRight.hasNext()){
+                outputList.add(itRight.next());
+            }
+            return outputList;
         }
         
  
         public static void main(String[] args) {
             // Weiss sort
             Integer[] a = {1,4,9,131,0,2,7,19,245,18};
-            MergeSort.mergeSort(a);
+            List<Integer> a2 = Arrays.asList(a);
+
+            MergeSort.mergeSortB(a);
             System.out.println(Arrays.toString(a)); // Should be [0, 1, 2, 4, 7, 9, 18, 19, 131, 245]
+            System.out.println(sortList(a2));
         }
 
 }
