@@ -25,10 +25,10 @@ public class KBestCounter<T extends Comparable<T>> {
     }
 
     public List<T> kbest() {
-        ArrayList<T> list = new ArrayList<>(k_);
+        ArrayList<T> list = new ArrayList<>(heap_.size());
         PriorityQueue<T> heap = new PriorityQueue<>();
 
-        for(int i = k_; i > 0; i--){
+        for(int i = heap_.size(); i > 0; i--){
             T x = heap_.poll();
             list.add(x);
             heap.add(x);
@@ -39,7 +39,7 @@ public class KBestCounter<T extends Comparable<T>> {
     }
 
     public static void main(String[] args) {
-        int k = 5;
+        int k = 25;
         KBestCounter <Integer> counter = new KBestCounter<>( k );
         List<Integer> arr = Arrays.asList(new Integer[] { 1, 8, 7, 10, 18, 25, 30, 42, 3, 9, 6, 14, 12, 10, 11, 99, 61, 323, 64, 81, 2, 4, 5, 2, 12, 52, 1, 4, 52, 443 });
         Iterator<Integer> stream = arr.iterator();
