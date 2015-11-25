@@ -86,7 +86,9 @@ instance:
 Add a method public void `doDijkstra(String s)` to `Graph`, that uses Dijkstra's algorithm to  find  the  weighted  shortest  paths  from  the  start  vertex  with  the  name *s*.   As  before,  calling the method should just set the correct information for each vertex (using the same three fields as for BFS). 
 
 As for BFS, write a method `public Graph getWeightedShortestPath(String s, String t)`
-that returns a `Graph` with the  same  vertices  as  the  original  graph,  but  only  the  edges  on  the  shortest  cost  path  between *s* and *t*.  Hint:  You might want to implement the `compareTo` method in `Vertex`.
+that returns a `Graph` with the  same  vertices  as  the  original  graph,  but  only  the  edges  on  the  shortest  cost  path  between *s* and *t*.  
+
+When implementing Dijkstra's algorithm, be careful what kind of object you store in the PriorityQueue. If the algorithm updates the minimum path cost for a vertex the second time, you should NOT update the cost for the previous entry in the PriorityQueue. Since the PriorityQueue is implemented as a heap, this could violate the heap order property and might ultimately lead to the wrong shortest path. Instead, you might want to create a new class that stores a pair of the cost and a reference to the vertex object.
 
 Write a testing class `TestDijkstra` that reads in a map fle, runs `getWeightedShortestPath` on the graph, and then displays the resulting graph.  The program should accept the same command line arguments as `TestBfs`.
 
