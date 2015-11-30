@@ -68,7 +68,7 @@ Write the method `public double computeEuclideanCost(double ux, double uy, doubl
 The euclidean distance is defined as  ![d(u,v) = sqrt( (u_x - v_x)^2 + (u_y - v_y)^2 )](figures/euclidean.png)
 Take a look at [java.lang.Math](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html) to do the calculation.
 
-Then, write the  method `public void computeEuclideanCosts()` to *Graph* that  computes  and  sets the cost for **each edge** using the euclidean distance between the coordinates of the vertices.
+Then, write the  method `public void computeAllEuclideanCosts()` to *Graph* that  computes  and  sets the cost for **each edge** using the euclidean distance between the coordinates of the vertices.
 
 ### Problem 7 (13 pts)
 Add a method `public void doBfs(String s)` to
