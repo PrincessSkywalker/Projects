@@ -157,13 +157,14 @@ public class Graph {
   // NewYork to SanFrancisco
   public void doDijkstra(String s) {
     PriorityQueue<WeightedVertex> queue = new PriorityQueue<>();
+
+    for(Vertex v : getVertices()){
+      v.cost = Double.POSITIVE_INFINITY;
+    }
+
     Vertex v = getVertex(s);
     v.cost = 0;
     queue.add(new WeightedVertex(v));
-
-    for(Vertex u : getVertices()){
-      u.cost = Double.POSITIVE_INFINITY;
-    }
 
     while(queue.size() > 0){
       WeightedVertex u = queue.poll();
