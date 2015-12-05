@@ -159,7 +159,6 @@ public class Graph {
     PriorityQueue<WeightedVertex> queue = new PriorityQueue<>();
     Vertex v = getVertex(s);
     v.cost = 0;
-    v.visited = true;
     queue.add(new WeightedVertex(v));
 
     for(Vertex u : getVertices()){
@@ -168,16 +167,17 @@ public class Graph {
 
     while(queue.size() > 0){
       WeightedVertex u = queue.poll();
-      u.vertex.visited = true;
+      if(!u.vertex.visited){
+        u.vertex.visited = true;
 
-      for(Edge e : u.vertex.getEdges()){
-        v = e.targetVertex;
-        if(!v.visited && u.cost + e.cost < v.cost){
-          v.cost = u.cost + e.cost;
-          v.backpointer = u.vertex;
-          WeightedVertex w = new WeightedVertex(v);
-          queue.remove(w);
-          queue.add(w);
+        for(Edge e : u.vertex.getEdges()){
+          v = e.targetVertex;
+          if(!v.visited && u.cost + e.cost < v.cost){
+            v.cost = u.cost + e.cost;
+            v.backpointer = u.vertex;
+            WeightedVertex w = new WeightedVertex(v);
+            queue.add(w);
+          }
         }
       }
     }
