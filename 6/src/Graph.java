@@ -1,6 +1,8 @@
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
 
 public class Graph {
 
@@ -73,42 +75,173 @@ public class Graph {
    ****************************/ 
 
   public void addUndirectedEdge(String s, String t, double cost) {
-    return; // TODO
+    addEdge(s, t, cost);
+    addEdge(t, s, cost);
   }
 
   public double computeEuclideanCost(double ux, double uy, double vx, double vy) {
-    return 0.0; // TODO
+    return Math.sqrt(Math.pow(ux - vx, 2) + Math.pow(uy - vy, 2));
   }
 
   public void computeAllEuclideanCosts() {
-    return; // TODO
+    for(Vertex v : getVertices()) {
+      for(Edge e : v.getEdges()) {
+        e.cost = computeEuclideanCost(v.posX, v.posY, e.targetVertex.posX, e.targetVertex.posY);
+      }
+    }
   }
 
   /** BFS */
   public void doBfs(String s) {
-    return; // TODO
+    LinkedList<Vertex> queue = new LinkedList<>();
+    Vertex v = getVertex(s);
+    queue.add(v);
+    v.visited = true;
+    v.cost = 0;
+
+    while (queue.size() > 0){
+      Vertex u = queue.poll();
+      for(Edge e : u.getEdges()){
+        v = e.targetVertex;
+        if(!v.visited){
+          v.visited = true;
+          v.backpointer = u;
+          v.cost = u.cost + 1;
+          queue.add(v);
+        }
+      }
+    }
+
   }
   
   public Graph getUnweightedShortestPath(String s, String t) {
-    return null; // TODO
+    doBfs(s);
+    Graph g = new Graph();
+
+    for(Vertex v : getVertices()) {
+      Vertex u = new Vertex(v.name, v.posX, v.posY);
+      g.addVertex(u);
+    }
+
+    Vertex v = getVertex(t);
+    while(v.backpointer != null) {
+      g.addUndirectedEdge(v.name, v.backpointer.name, 1);
+      v = v.backpointer;
+    }
+    return g;
   }
 
   /** Dijkstra's */
+  private class WeightedVertex implements Comparable<WeightedVertex> {
+    Vertex vertex;
+    double cost;
+
+    WeightedVertex(Vertex v) {
+      vertex = v;
+      cost = v.cost;
+    }
+
+    public int compareTo(WeightedVertex other) {
+      if(cost < other.cost)
+        return -1;
+      if(cost > other.cost)
+        return 1;
+      return 0;
+    }
+
+    public boolean equals(Object other) {
+      return vertex.name.equals(((WeightedVertex)other).vertex.name);
+    }
+  }
+
+  // NewYork to SanFrancisco
   public void doDijkstra(String s) {
-    return; // TODO
+    PriorityQueue<WeightedVertex> queue = new PriorityQueue<>();
+    Vertex v = getVertex(s);
+    v.cost = 0;
+    v.visited = true;
+    queue.add(new WeightedVertex(v));
+
+    for(Vertex u : getVertices()){
+      u.cost = Double.POSITIVE_INFINITY;
+    }
+
+    while(queue.size() > 0){
+      WeightedVertex u = queue.poll();
+      u.vertex.visited = true;
+
+      for(Edge e : u.vertex.getEdges()){
+        v = e.targetVertex;
+        if(!v.visited && u.cost + e.cost < v.cost){
+          v.cost = u.cost + e.cost;
+          v.backpointer = u.vertex;
+          WeightedVertex w = new WeightedVertex(v);
+          queue.remove(w);
+          queue.add(w);
+        }
+      }
+    }
   }
 
   public Graph getWeightedShortestPath(String s, String t) {
-    return null; // TODO
+    doDijkstra(s);
+    Graph g = new Graph();
+
+    for(Vertex v : getVertices()) {
+      Vertex u = new Vertex(v.name, v.posX, v.posY);
+      g.addVertex(u);
+    }
+
+    Vertex v = getVertex(t);
+    while(v.backpointer != null) {
+      g.addUndirectedEdge(v.name, v.backpointer.name, 1);
+      v = v.backpointer;
+    }
+    return g;
   }
 
   /** Prim's */
   public void doPrim(String s) {
-    return; // TODO
+    PriorityQueue<WeightedVertex> queue = new PriorityQueue<>();
+
+    for(Vertex v : getVertices()){
+      v.cost = Double.POSITIVE_INFINITY;
+    }
+
+    Vertex v = getVertex(s);
+    v.cost = 0;
+    queue.add(new WeightedVertex(v));
+
+    while(queue.size() > 0){
+      WeightedVertex u = queue.poll();
+      if(!u.vertex.visited){
+        u.vertex.visited = true;
+        for(Edge e : u.vertex.getEdges()){
+          v = e.targetVertex;
+          if(!v.visited && e.cost < v.cost){
+            v.cost = e.cost;
+            v.backpointer = u.vertex;
+            queue.add(new WeightedVertex(v));
+          }
+        }
+      }
+    }
   }
 
   public Graph getMinimumSpanningTree(String s) {
-    return null; // TODO
+    doPrim(s);
+    Graph g = new Graph();
+
+    for(Vertex v : getVertices()) {
+      Vertex u = new Vertex(v.name, v.posX, v.posY);
+      g.addVertex(u);
+    }
+
+    for(Vertex v : getVertices()){
+      if(v.backpointer != null)
+        g.addUndirectedEdge(v.name, v.backpointer.name, 1);
+    }
+    return g;
   }
 
   /*************************/
