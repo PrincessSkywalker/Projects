@@ -1,4 +1,4 @@
-# Homework 6
+# Homework 7
 
 COMS W3134 - Data Structures in Java
 * 100pts total (+20 extra credit)
