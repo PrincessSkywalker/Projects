@@ -51,10 +51,12 @@ public class SuperSoda {
     int maximum = 0;
 
     for(int s = 0; s<sodaSizes.length; s++){
-      int x = sodaSizes[s] + maximumSodaNumberHelper(sodaSizes, costs, cost-costs[s], memo);
+      if(cost-costs[s] >= 0){
+        int x = sodaSizes[s] + maximumSodaNumberHelper(sodaSizes, costs, cost-costs[s], memo);
 
-      if(x>maximum){
-        maximum = x;
+        if(x>maximum){
+          maximum = x;
+        }
       }
     }
 
